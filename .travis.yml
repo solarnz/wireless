@@ -1,0 +1,13 @@
+language: go
+
+go:
+    - 1.4
+    - 1.5
+    - tip
+
+before_script:
+  - go get -u golang.org/x/tools/cmd/vet
+  - go get -u github.com/golang/lint/golint
+  - go vet ./...
+  - golint ./...
+  - test -z "$(gofmt -s -l $(find *.go -type f -print) | tee /dev/stderr)"
