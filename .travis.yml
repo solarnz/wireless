@@ -5,6 +5,11 @@ go:
     - 1.5
     - tip
 
+addons:
+  apt:
+    packages:
+        - libiw-dev
+
 before_script:
   - go get -u golang.org/x/tools/cmd/vet
   - go get -u github.com/golang/lint/golint
